@@ -1,6 +1,8 @@
 from django import template
 from ..models import Post
 from django.db.models import Count
+from django.utils.safestring import mark_safe
+import markdown
 
 register = template.Library()
 
@@ -35,3 +37,8 @@ def get_most_commented_posts(count=5):
     and can be changed by calling this tag in the template by {% get_most_commented_posts 3 %} which is no passing the argument of count = 3
     """
     return Post.published.annotate(total_comments=Count('comments')).order_by('-total_comments')[:count]
+
+
+@register.filter(name='markdown')
+def markdown_format(text):
+    return mark_safe(markdown.markdown((text)))

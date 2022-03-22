@@ -1,3 +1,15 @@
 {
-    "python.defaultInterpreterPath": "E:\\Blog System\\my_env\\Scripts\\python.exe"
+    "python.defaultInterpreterPath": "E:\\Blog System\\my_env\\Scripts\\python.exe",
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    },
+    "files.associations": {
+        "**/*.html": "html",
+        "**/templates/**/*.html": "django-html",
+        "**/templates/**/*": "django-txt",
+        "**/requirements{/**,*}.{txt,in}": "pip-requirements"
+    },
+    "[django-html]": {
+        "editor.formatOnSave": false,
+    },
 }

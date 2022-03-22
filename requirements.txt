@@ -1,5 +1,9 @@
 asgiref==3.5.0
+autopep8==1.6.0
 Django==3.0.14
 django-taggit==1.2.0
+Markdown==3.2.1
+pycodestyle==2.8.0
 pytz==2022.1
 sqlparse==0.4.2
+toml==0.10.2
