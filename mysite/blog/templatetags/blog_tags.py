@@ -27,4 +27,11 @@ def show_latest_posts(count=5):
 
 @register.simple_tag
 def get_most_commented_posts(count=5):
+    """
+    Returning the top 5 (by default) most commented posts
+    annotate function adds a note beside each Post object using total_comments variable
+    to calculate each post's comments, then ordering them by that new column added called total_comments disassending 
+    then by the end of that Query set we add [:count] which is a list slicer slicing the returned list to the count of 5 that is a default value
+    and can be changed by calling this tag in the template by {% get_most_commented_posts 3 %} which is no passing the argument of count = 3
+    """
     return Post.published.annotate(total_comments=Count('comments')).order_by('-total_comments')[:count]
